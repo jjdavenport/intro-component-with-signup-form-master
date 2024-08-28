@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{html,js,jsx}", "./index.html"],
   theme: {
     extend: {
+      fontFamily: {
+        custom: ["poppins", "sans-serif"],
+      },
       backgroundImage: {
         mobile: "url('/images/bg-intro-mobile.png')",
         desktop: "url('/images/bg-intro-desktop.png')",

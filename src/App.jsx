@@ -8,22 +8,26 @@ function App() {
   const desktop = useMediaQuery({ minWidth: 768 });
   return (
     <>
-      <div className="flex flex-col justify-between bg-mobile bg-cover bg-no-repeat text-base md:bg-desktop">
+      <div className="font-custom flex min-h-screen w-full flex-col justify-between bg-red bg-mobile bg-cover bg-no-repeat text-base text-white md:bg-desktop">
         {desktop ? (
           <>
-            <section>
-              <Article />
-            </section>
-            <section>
-              <Button />
-              <Form />
-            </section>
+            <div className="flex">
+              <section>
+                <Article />
+              </section>
+              <section>
+                <Button />
+                <Form />
+              </section>
+            </div>
           </>
         ) : (
           <>
-            <Article />
-            <Button />
-            <Form />
+            <div>
+              <Article />
+              <Button />
+              <Form />
+            </div>
           </>
         )}
         <Footer />
