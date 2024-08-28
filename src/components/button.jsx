@@ -3,12 +3,11 @@ import data from "./assets/data.json";
 const Button = () => {
   return (
     <>
-      <div>
+      <a className="inline-block space-x-1 rounded-lg bg-blue p-2 text-center">
         <p>
-          <span>{data.span}</span>
-          {data.buttonP}
+          {data.buttonP} <span>{data.span}</span>
         </p>
-      </div>
+      </a>
     </>
   );
 };

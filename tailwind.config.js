@@ -6,7 +6,11 @@ export default {
       fontFamily: {
         custom: ["poppins", "sans-serif"],
       },
+      backgroundPosition: {
+        customPosition: "center right 1rem",
+      },
       backgroundImage: {
+        error: "url('/images/icon-error.svg')",
         mobile: "url('/images/bg-intro-mobile.png')",
         desktop: "url('/images/bg-intro-desktop.png')",
       },

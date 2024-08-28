@@ -11,11 +11,11 @@ function App() {
       <div className="font-custom flex min-h-screen w-full flex-col justify-between bg-red bg-mobile bg-cover bg-no-repeat text-base text-white md:bg-desktop">
         {desktop ? (
           <>
-            <div className="flex">
-              <section>
+            <div className="flex flex-1 p-4">
+              <section className="w-1/2">
                 <Article />
               </section>
-              <section>
+              <section className="flex w-1/2 flex-col gap-4">
                 <Button />
                 <Form />
               </section>
@@ -23,7 +23,7 @@ function App() {
           </>
         ) : (
           <>
-            <div>
+            <div className="flex flex-1 flex-col gap-4 p-4">
               <Article />
               <Button />
               <Form />

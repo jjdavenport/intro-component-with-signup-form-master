@@ -3,8 +3,8 @@ import data from "./assets/data.json";
 const Article = () => {
   return (
     <>
-      <article>
-        <h1>{data.h1}</h1>
+      <article className="flex flex-col gap-4 text-center">
+        <h1 className="text-2xl font-bold">{data.h1}</h1>
         <p>{data.p}</p>
       </article>
     </>

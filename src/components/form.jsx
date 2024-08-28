@@ -46,20 +46,35 @@ const Form = () => {
 
   return (
     <>
-      <form onSubmit={submit} noValidate className="flex flex-col">
+      <form
+        onSubmit={submit}
+        noValidate
+        className="flex flex-col gap-4 rounded-xl bg-white p-4"
+      >
         {inputs.map((i, index) => (
-          <div key={index}>
+          <div className="flex h-14 flex-col gap-1" key={index}>
             <input
+              className={`${error[i.name] ? "bg-error bg-customPosition bg-no-repeat text-red outline outline-2 outline-red" : "text-darkBlue outline outline-1 outline-grayishBlue"} w-full rounded-md p-2`}
               onChange={change}
               value={input[i.name]}
               placeholder={i.placeholder}
               type={i.type}
               name={i.name}
             />
-            {error[i.name] && <p>{error[i.name]}</p>}
+            {error[i.name] && (
+              <em className="text-right text-red">{error[i.name]}</em>
+            )}
           </div>
         ))}
-        <button type="submit">{data.button}</button>
+        <button
+          className="transform rounded-lg bg-green p-2 duration-300 ease-in-out hover:opacity-60"
+          type="submit"
+        >
+          {data.button}
+        </button>
+        <p className="text-center text-grayishBlue">
+          {data.terms} <span className="text-red">{data.termsSpan}</span>
+        </p>
       </form>
     </>
   );
