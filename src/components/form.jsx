@@ -15,10 +15,11 @@ const Form = () => {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
     let error = {};
     for (let i in input) {
+      const errorName = inputs.find((item) => item.name === i);
       if (!input[i]) {
-        error[i] = "Empty";
+        error[i] = `${errorName.placeholder} cannot be empty`;
       } else if (i === "email" && !regex.test(input[i])) {
-        error[i] = "Invalid";
+        error[i] = "Looks like this is not an email";
       }
     }
     return error;
@@ -49,12 +50,12 @@ const Form = () => {
       <form
         onSubmit={submit}
         noValidate
-        className="flex flex-col gap-4 rounded-xl bg-white p-4"
+        className="flex flex-col gap-2 rounded-xl bg-white p-4 shadow-2xl"
       >
         {inputs.map((i, index) => (
-          <div className="flex h-14 flex-col gap-1" key={index}>
+          <div className="flex h-20 flex-col gap-1" key={index}>
             <input
-              className={`${error[i.name] ? "bg-error bg-customPosition bg-no-repeat text-red outline outline-2 outline-red" : "text-darkBlue outline outline-1 outline-grayishBlue"} w-full rounded-md p-2`}
+              className={`${error[i.name] ? "bg-error bg-customPosition bg-no-repeat text-red outline outline-2 outline-red" : "text-darkBlue outline outline-1 outline-grayishBlue"} w-full rounded-md p-4 font-semibold placeholder:font-semibold placeholder:text-grayishBlue hover:cursor-pointer`}
               onChange={change}
               value={input[i.name]}
               placeholder={i.placeholder}
@@ -62,18 +63,23 @@ const Form = () => {
               name={i.name}
             />
             {error[i.name] && (
-              <em className="text-right text-red">{error[i.name]}</em>
+              <em className="text-right text-xs font-semibold text-red">
+                {error[i.name]}
+              </em>
             )}
           </div>
         ))}
         <button
-          className="transform rounded-lg bg-green p-2 duration-300 ease-in-out hover:opacity-60"
+          className="transform rounded-lg bg-green p-4 font-semibold uppercase shadow-sm duration-300 ease-in-out hover:opacity-60"
           type="submit"
         >
           {data.button}
         </button>
-        <p className="text-center text-grayishBlue">
-          {data.terms} <span className="text-red">{data.termsSpan}</span>
+        <p className="inline text-center text-sm font-medium text-grayishBlue">
+          {data.terms}{" "}
+          <a href="#" className="font-bold text-red">
+            {data.termsSpan}
+          </a>
         </p>
       </form>
     </>
