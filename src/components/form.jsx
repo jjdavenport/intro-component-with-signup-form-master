@@ -50,7 +50,7 @@ const Form = () => {
       <form
         onSubmit={submit}
         noValidate
-        className="flex flex-col gap-2 rounded-xl bg-white p-4 shadow-2xl"
+        className="flex flex-col gap-2 rounded-lg bg-white p-6 shadow-2xl"
       >
         {inputs.map((i, index) => (
           <div className="flex h-20 flex-col gap-1" key={index}>
